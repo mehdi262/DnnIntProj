@@ -34,7 +34,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -92,6 +94,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DnnInterProj.EntityModel\DnnInterProj.EntityModel.csproj">
+      <Project>{14179035-9906-46ee-b302-4ce667c87813}</Project>
+      <Name>DnnInterProj.EntityModel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DnnInterProj\DnnInterProj.csproj">
       <Project>{97D1828E-764F-41A8-BBA9-7F6FFA0399D3}</Project>
       <Name>DnnInterProj</Name>
