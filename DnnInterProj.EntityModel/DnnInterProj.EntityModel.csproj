@@ -41,11 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DnnInterProj.cs" />
-    <Compile Include="Person.cs" />
-    <Compile Include="PersonBase.cs" />
+    <Compile Include="Model\EntityBase.cs" />
+    <Compile Include="Model\Person.cs" />
+    <Compile Include="Model\PersonBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
