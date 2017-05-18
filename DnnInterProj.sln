@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DnnInterProj.Tests", "DnnIn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DnnInterProj.EntityModel", "DnnInterProj.EntityModel\DnnInterProj.EntityModel.csproj", "{14179035-9906-46EE-B302-4CE667C87813}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DnnInterProj.DataAccess", "DnnInterProj.DataAccess\DnnInterProj.DataAccess.csproj", "{A16F2611-E86E-442C-99C5-1AB3444243CD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{14179035-9906-46EE-B302-4CE667C87813}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14179035-9906-46EE-B302-4CE667C87813}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{14179035-9906-46EE-B302-4CE667C87813}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A16F2611-E86E-442C-99C5-1AB3444243CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A16F2611-E86E-442C-99C5-1AB3444243CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A16F2611-E86E-442C-99C5-1AB3444243CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A16F2611-E86E-442C-99C5-1AB3444243CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
