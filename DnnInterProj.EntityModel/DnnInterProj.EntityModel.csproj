@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dtos\PersonDto.cs" />
     <Compile Include="Model\EntityBase.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\PersonBase.cs" />
