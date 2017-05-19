@@ -8,8 +8,29 @@ namespace DnnInterProj
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+            bundles.Add(new ScriptBundle("~/bundles/uilib").Include(
+                "~/Scripts/jquery-1.9.1.js",
+                "~/Scripts/ui191/jquery.ui.core.js",
+                "~/Scripts/ui191/jquery.ui.widget.js",
+                "~/Scripts/ui191/jquery.ui.mouse.js",
+                "~/Scripts/ui191/jquery.ui.button.js",
+                "~/Scripts/ui191/jquery.ui.draggable.js",
+                "~/Scripts/ui191/jquery.ui.position.js",
+                "~/Scripts/ui191/jquery.ui.resizable.js",
+                "~/Scripts/ui191/jquery.ui.button.js",
+                "~/Scripts/ui191/jquery.ui.dialog.js",
+                "~/Scripts/ui191/jquery.ui.effect.js"
+                ));
+
+            bundles.Add(new ScriptBundle("~/bundles/lib").Include(
+
+              "~/Scripts/jquery-{version}.js",
+              "~/Scripts/bootstrap.js",
+            "~/Scripts/bootbox.js",
+            "~/Scripts/respond.js",
+            "~/Scripts/typeahead.bundle.js"
+              ));
+
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -23,8 +44,11 @@ namespace DnnInterProj
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                "~/Content/bootstrap-Lumen.css",
+                "~/Content/typeahead.css",
                       "~/Content/site.css"));
         }
     }

@@ -183,8 +183,10 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\api\PersonsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -195,18 +197,94 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-Lumen.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Icon\details_close.png" />
+    <Content Include="Content\Icon\details_open.png" />
+    <Content Include="Content\Icon\sort_asc.png" />
+    <Content Include="Content\Icon\sort_asc_disabled.png" />
+    <Content Include="Content\Icon\sort_both.png" />
+    <Content Include="Content\Icon\sort_desc.png" />
+    <Content Include="Content\Icon\sort_desc_disabled.png" />
+    <Content Include="Content\Icon\user.gif" />
+    <Content Include="Content\ui\demos.css" />
+    <Content Include="Content\ui\themes\base\images\animated-overlay.gif" />
+    <Content Include="Content\ui\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\ui\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\ui\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\ui\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\ui\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\ui\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\ui\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\ui\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\ui\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\ui\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\ui\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\ui\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\ui\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\ui\themes\base\jquery-ui.css" />
+    <Content Include="Content\ui\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\ui\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\ui\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\ui\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\ui\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\ui\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\ui\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\ui\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\ui\themes\base\jquery.ui.menu.css" />
+    <Content Include="Content\ui\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\ui\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\ui\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\ui\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\ui\themes\base\jquery.ui.spinner.css" />
+    <Content Include="Content\ui\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\ui\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\ui\themes\base\jquery.ui.tooltip.css" />
+    <Content Include="Content\ui\themes\base\minified\images\animated-overlay.gif" />
+    <Content Include="Content\ui\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\ui\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\ui\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\ui\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\ui\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\ui\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\ui\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\ui\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\ui\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\ui\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\ui\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\ui\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\ui\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\ui\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\ui\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\ui\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\ui\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\ui\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\ui\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\ui\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\ui\themes\base\minified\jquery.ui.menu.min.css" />
+    <Content Include="Content\ui\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\ui\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\ui\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\ui\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\ui\themes\base\minified\jquery.ui.spinner.min.css" />
+    <Content Include="Content\ui\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\ui\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\ui\themes\base\minified\jquery.ui.tooltip.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootbox.js" />
+    <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\mehdi\dnnForm.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -214,6 +292,41 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\ui191\jquery-ui.js" />
+    <Content Include="Scripts\ui191\jquery.ui.accordion.js" />
+    <Content Include="Scripts\ui191\jquery.ui.autocomplete.js" />
+    <Content Include="Scripts\ui191\jquery.ui.button.js" />
+    <Content Include="Scripts\ui191\jquery.ui.core.js" />
+    <Content Include="Scripts\ui191\jquery.ui.datepicker.js" />
+    <Content Include="Scripts\ui191\jquery.ui.dialog.js" />
+    <Content Include="Scripts\ui191\jquery.ui.draggable.js" />
+    <Content Include="Scripts\ui191\jquery.ui.droppable.js" />
+    <Content Include="Scripts\ui191\jquery.ui.effect-blind.js" />
+    <Content Include="Scripts\ui191\jquery.ui.effect-bounce.js" />
+    <Content Include="Scripts\ui191\jquery.ui.effect-clip.js" />
+    <Content Include="Scripts\ui191\jquery.ui.effect-drop.js" />
+    <Content Include="Scripts\ui191\jquery.ui.effect-explode.js" />
+    <Content Include="Scripts\ui191\jquery.ui.effect-fade.js" />
+    <Content Include="Scripts\ui191\jquery.ui.effect-fold.js" />
+    <Content Include="Scripts\ui191\jquery.ui.effect-highlight.js" />
+    <Content Include="Scripts\ui191\jquery.ui.effect-pulsate.js" />
+    <Content Include="Scripts\ui191\jquery.ui.effect-scale.js" />
+    <Content Include="Scripts\ui191\jquery.ui.effect-shake.js" />
+    <Content Include="Scripts\ui191\jquery.ui.effect-slide.js" />
+    <Content Include="Scripts\ui191\jquery.ui.effect-transfer.js" />
+    <Content Include="Scripts\ui191\jquery.ui.effect.js" />
+    <Content Include="Scripts\ui191\jquery.ui.menu.js" />
+    <Content Include="Scripts\ui191\jquery.ui.mouse.js" />
+    <Content Include="Scripts\ui191\jquery.ui.position.js" />
+    <Content Include="Scripts\ui191\jquery.ui.progressbar.js" />
+    <Content Include="Scripts\ui191\jquery.ui.resizable.js" />
+    <Content Include="Scripts\ui191\jquery.ui.selectable.js" />
+    <Content Include="Scripts\ui191\jquery.ui.slider.js" />
+    <Content Include="Scripts\ui191\jquery.ui.sortable.js" />
+    <Content Include="Scripts\ui191\jquery.ui.spinner.js" />
+    <Content Include="Scripts\ui191\jquery.ui.tabs.js" />
+    <Content Include="Scripts\ui191\jquery.ui.tooltip.js" />
+    <Content Include="Scripts\ui191\jquery.ui.widget.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -249,9 +362,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Person\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\position\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -262,6 +377,14 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DnnInterProj.Biz\DnnInterProj.Biz.csproj">
+      <Project>{06dc5e45-a3fd-4b2b-a729-ebd0df45d79c}</Project>
+      <Name>DnnInterProj.Biz</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DnnInterProj.DataAccess\DnnInterProj.DataAccess.csproj">
+      <Project>{a16f2611-e86e-442c-99c5-1ab3444243cd}</Project>
+      <Name>DnnInterProj.DataAccess</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DnnInterProj.EntityModel\DnnInterProj.EntityModel.csproj">
       <Project>{14179035-9906-46ee-b302-4ce667c87813}</Project>
       <Name>DnnInterProj.EntityModel</Name>
