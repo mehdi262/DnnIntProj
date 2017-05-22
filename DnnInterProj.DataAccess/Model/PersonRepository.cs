@@ -27,7 +27,12 @@ namespace DnnInterProj.DataAccess
         /// <returns>The return is a List of all persons or null if not exists any</returns>
         public List<Person> GetAll()
         {
-            return _context.Persons.ToList();
+            List<Person>result= _context.Persons.ToList();
+            _context.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
+            return result;
+           
+            ;
+
         }
 
         /// <summary>
@@ -113,6 +118,7 @@ namespace DnnInterProj.DataAccess
                 {
                     _context.Persons.Add(person);
                     _context.SaveChanges();
+                    
                 }
 
                 else

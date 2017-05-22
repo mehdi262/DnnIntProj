@@ -30,7 +30,10 @@ namespace DnnMehdiNikkhah01.Controllers
             return View(Repo.GetAll());
         }
 
-
+        public ActionResult TestIndex()
+        {
+            return View();
+        }
         protected override void Dispose(bool disposing)
         {
 
