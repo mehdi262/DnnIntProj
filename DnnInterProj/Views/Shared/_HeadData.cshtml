@@ -1,0 +1,60 @@
+﻿@using DnnInterProj.EntityModel.Model;
+@model IEnumerable<Person>
+<meta charset="utf-8" />
+
+<link rel="stylesheet" href="~/Content/ui/themes/base/jquery.ui.all.css">
+<script src="~/Scripts/jquery-1.9.1.js"></script>
+<script src="~/Scripts/ui191/jquery.ui.core.js"></script>
+<script src="~/Scripts/ui191/jquery.ui.widget.js"></script>
+<script src="~/Scripts/ui191/jquery.ui.mouse.js"></script>
+<script src="~/Scripts/ui191/jquery.ui.button.js"></script>
+<script src="~/Scripts/ui191/jquery.ui.draggable.js"></script>
+<script src="~/Scripts/ui191/jquery.ui.position.js"></script>
+<script src="~/Scripts/ui191/jquery.ui.resizable.js"></script>
+<script src="~/Scripts/ui191/jquery.ui.button.js"></script>
+<script src="~/Scripts/ui191/jquery.ui.dialog.js"></script>
+<script src="~/Scripts/ui191/jquery.ui.effect.js"></script>
+<link rel="stylesheet" href="~/Content/ui/demos.css">
+
+@Styles.Render("~/Content/Page-css.css")
+<script type="text/javascript">
+        function LoadTableData(table_selector) {
+            $.ajax({
+                url: '/api/persons',
+                type: 'GET',
+                dataType: 'json',
+
+                contentType: 'application/json; charset=utf-8',
+                success: function (dataModel) {
+                   // debugger;
+                    try {
+                        table_selector.empty();
+                        var usericon = "<img src='/Content/Icon/user.gif' class='img img-circle' style='width:30px; height:30px ;border-radius: 50%; border:1px solid; float:left' />";
+                        $.each(dataModel, function (key, val) {
+                            table_selector.append("<tr>" +
+    "<td>" + usericon + val.Name + "  " + val.LastName + " <br /> " + val.UserName + "</td>" +
+    "<td>" + val.Email + "</td>" +
+     "<td>" + val.Age + "</td>" +
+    "<td>" + val.JoinedDate + "</td>" +
+    "<td>" +
+        " <button class='btn btn-link js-delete' data-person-id='"+val.Id+"' id='delete'><span class='glyphicon glyphicon-remove'></span> </button>"+
+        "<button class='btn btn-link js-edit' data-toggle='modal' data-target='#myModal-Edit' data-person-id='" + val.Id + "' id='Edit'><span class='glyphicon glyphicon-edit'></span></button>"
+        +"</td>"+
+    "</tr>");
+                        });
+
+                        setRowColours();
+
+                    } catch (e) {
+                        console.log('Error while formatting the data : ' + e.message)
+                    }
+
+
+                },
+                error: function (xhrequest, error, thrownError) {
+                    console.log('Error while ajax call: ' + error)
+                }
+            });
+        }
+
+</script>

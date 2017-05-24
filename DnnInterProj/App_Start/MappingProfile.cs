@@ -12,9 +12,13 @@ namespace DnnInterProj.App_Start
     {
         public MappinProfile()
         {
-            Mapper.CreateMap<Person, PersonDto>();
+            Mapper.CreateMap<Person, PersonDto>()
+                .ForMember(dest => dest.Age, opt => opt.MapFrom<string>(src => src.Age.ToString()));
+
             Mapper.CreateMap<PersonDto, Person>()
-                .ForMember(dest => dest.JoinedDate, opt => opt.UseValue<DateTime>(DateTime.Now));
+                .ForMember(dest => dest.JoinedDate, opt => opt.UseValue<DateTime>(DateTime.Now))
+                .ForMember(dest => dest.Age, opt => opt.MapFrom<int>(src=>int.Parse(src.Age)));
+    
 
             Mapper.CreateMap<Person, Person>();
 

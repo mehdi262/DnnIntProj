@@ -16,7 +16,7 @@ namespace DnnInterProj
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}",
-                defaults: new { controller = "Person", action = "Index" }
+                defaults: new { controller = "Home", action = "Index" }
             );
         }
     }

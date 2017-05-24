@@ -1,31 +1,149 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿
+@{
+   
+    ViewBag.Title = " Test Person Management";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+
+
+    <h2>Person Management</h2>
+
+<button type="submit" class="btn btn-info btn-lg js-create"  data-toggle='modal' data-target='#myModal-add' id="create-user2">Create New User</button>
+
+
+    <br />
+    <br />
+
+<!-- Modal -->
+<div id="myModal-Edit" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->        
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">
+                        Edit Person Details (id:
+                        <span  id="id" ></span>
+                        )
+
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <p class="validateTipsEdit">All form fields are required.</p>
+                    <fieldset>
+                        <div style="width:50%; float:left">
+                            <label for="name" style="float:left; width:30%">Name</label>
+                            <input type="text" name="name" id="name" style="float:left; width:60%" class="text ui-widget-content ui-corner-all" />
+                        </div>
+                        <div style="width:50%; float:right">
+                            <label for="lastName" style="float:left; width:30%">Last Name</label>
+                            <input name="lastName" id="lastName" value="" style="float:right; width:60%" class="text ui-widget-content ui-corner-all" />
+                        </div>
+                        <div style="float:none"></div>
+                        <div style="width:50%; float:left">
+                            <label for="email" style="float:left; width:30%">Email</label>
+                            <input type="text" name="email" id="email" value="" style="float:left; width:60%" class="text ui-widget-content ui-corner-all" />
+                        </div>
+                        <div style="width:50%; float:right">
+                            <label for="userName" style="float:left; width:30%">User Name</label>
+                            <input name="userName" readonly id="userName" value="" style="float:right; width:60%" class="text ui-widget-content ui-corner-all" />
+                        </div>
+                        <div style="width:50%; float:left">
+                            <label for="age" style="float:left; width:30%">Age</label>
+                            <input name="age"  id="age" value="" style="width:60%" class="text ui-widget-content ui-corner-all" />
+                        </div>
+
+                    </fieldset>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default js-update"  >Save</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
 </div>
+<div id="myModal-add" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">
+                    Add New Person 
+
+                </h4>
+            </div>
+            <div class="modal-body">
+                <p class="validateTipsAdd">All form fields are required.</p>
+                <fieldset>
+                    <div style="width:50%; float:left">
+                        <label for="name" style="float:left; width:30%">Name</label>
+                        <input type="text" name="name" id="aname" style="float:left; width:60%" class="text ui-widget-content ui-corner-all" />
+                    </div>
+                    <div style="width:50%; float:right">
+                        <label for="lastName" style="float:left; width:30%">Last Name</label>
+                        <input name="lastName" id="alastName" value="" style="float:right; width:60%" class="text ui-widget-content ui-corner-all" />
+                    </div>
+                    <div style="float:none"></div>
+                    <div style="width:50%; float:left">
+                        <label for="email" style="float:left; width:30%">Email</label>
+                        <input type="text" name="email" id="aemail" value="" style="float:left; width:60%" class="text ui-widget-content ui-corner-all" />
+                    </div>
+                    <div style="width:50%; float:right">
+                        <label for="userName" style="float:left; width:30%">User Name</label>
+                        <input name="userName"  id="auserName" value="" style="float:right; width:60%" class="text ui-widget-content ui-corner-all" />
+                    </div>
+                    <div style="width:50%; float:left">
+                        <label for="age" style="float:left; width:30%">Age</label>
+                        <input name="age" id="aage" value="" style="width:60%" class="text ui-widget-content ui-corner-all" />
+                    </div>
+
+                </fieldset>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default js-add">Save</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+   
+    <input id="searchInput" value="Type To Filter">
+    <div id="users-contain" class="ui-widget">
+        <h1>Existing Users:</h1>
+
+
+        <table id="users" class="table table-bordered table-hover ui-widget" Style="width:100%">
+            <thead>
+                <tr class="ui-widget-header ">
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th> Age</th>
+                    <th id="sortOnJoin">
+                        <div style="float:left">Joind</div>
+                        <span id="sortIcon" style="float:right">
+                            <span class="div-asc glyphicon glyphicon-sort-by-attributes">
+                                
+                            </span>
+                            <span class="div-des glyphicon glyphicon-sort-by-attributes-alt">
+                                
+                            </span>
+                        </span>
+                    </th>
+                    <th>
+                        Commands
+
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="fbody"></tbody>
+        </table>
+    </div>
+
+@Scripts.Render("~/Scripts/mehdi/page-scripts.js");

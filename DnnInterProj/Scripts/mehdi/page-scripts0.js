@@ -1,10 +1,50 @@
-﻿$(function () {
+﻿
+        function LoadTableData(table_selector) {
+            $.ajax({
+                url: '/api/persons',
+                type: 'GET',
+                dataType: 'json',
+
+                contentType: 'application/json; charset=utf-8',
+                success: function (dataModel) {
+                    debugger;
+                    try {
+                        table_selector.empty();
+                        var usericon = "<img src='/Content/Icon/user.gif' class='img img-circle' style='width:30px; height:30px ;border-radius: 50%; border:1px solid; float:left' />";
+                        $.each(dataModel, function (key, val) {
+                            table_selector.append("<tr>" +
+                                                                         "<td>" + usericon + val.Name + "  " + val.LastName + " <br/> " + val.UserName + "</td>" +
+                                                                         "<td>" + val.Email + "</td>" +
+                                                                         "<td>" + val.JoinedDate + "</td>" +
+                                                                         "<td>" + 
+                                                                        " <button class='btn btn-link js-delete' data-person-id='"+val.Id+"' id='delete'><span class='glyphicon glyphicon-remove'></span> </button>"+
+                                                                        "<button class='btn btn-link js-edit' data-person-id='" + val.Id + "' id='Edit'><span class='glyphicon glyphicon-edit'></span></button>"
+                                                                         +"</td>"+
+                                                                     "</tr>");
+                        });
+
+                        setRowColours();
+
+                    } catch (e) {
+                        console.log('Error while formatting the data : ' + e.message)
+                    }
+
+
+                },
+                error: function (xhrequest, error, thrownError) {
+                    console.log('Error while ajax call: ' + error)
+                }
+            });
+        }
+$(function () {
     var name = $("#name"),
         email = $("#email"),
         lastName = $("#lastName"),
         userName = $("#userName"),
         allFields = $([]).add(name).add(email).add(lastName).add(userName),
         tips = $(".validateTips");
+
+
 
     function updateTips(t) {
         tips
@@ -38,13 +78,11 @@
     }
 
 
-
-
     $("#dialog-form").dialog({
 
         autoOpen: false,
-        height: 400,
-        width: 550,
+        height: 300,
+        width: 350,
         modal: true,
         buttons: {
             "Create a person": function () {
@@ -86,16 +124,9 @@
 
                         contentType: 'application/json; charset=utf-8',
                         success: function (data) {
-                            var usericon = "<img src='/Content/Icon/user.gif' class='img img-circle' style='width:30px; height:30px ;border-radius: 50%; border:1px solid; float:left' />";
-
-                            table_selector.append("<tr>" +
-                                                 "<td>" + usericon + data.Name + "  " + data.LastName + " <br/> " + data.UserName + "</td>" +
-                                                 "<td>" + data.Email + "</td>" +
-                                                 "<td>" + data.JoinedDate + "</td>" +
-                                             "</tr>");
-                            //.getFullYear() + "-" + d.getMonth() + "-" + d.getDay()
+                            LoadTableData(table_selector);
                             diag.dialog("close");
-                            setRowColours();
+
 
                         },
                         error: function (response) {
@@ -114,7 +145,7 @@
             allFields.val("").removeClass("ui-state-error");
         }
     });
-
+  
     $("#create-user")
         .button()
         .click(function () {

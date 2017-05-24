@@ -67,8 +67,11 @@ namespace DnnInterProj.Controllers.api
             try
             {
                 Person personReceived = new Person();
-                Mapper.Map<PersonDto, Person>(personDto, personReceived);
+                if(!ValidateModel.IsAgeFormat(personDto.Age))
+                    return BadRequest("Age can only be between 00 to 99 Format is incorrect");
 
+                Mapper.Map<PersonDto, Person>(personDto, personReceived);
+//                personReceived.Age = int.Parse(personDto.Age);
                 int res = Repo.Update(id, personReceived);
                 switch (res)
                 {

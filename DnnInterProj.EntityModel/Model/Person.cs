@@ -44,6 +44,8 @@ namespace DnnInterProj.EntityModel.Model
         [DataType(DataType.EmailAddress, ErrorMessage = "E-mail is not valid")]
         public string Email { get; set; }
 
+        [Display(Name="The Person Age")]
+        public int Age { get; set; }
 
         /// <summary>
         /// JoinedDate Field of type DateTime. This the requierd field

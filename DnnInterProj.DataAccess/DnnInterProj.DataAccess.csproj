@@ -51,6 +51,15 @@
   <ItemGroup>
     <Compile Include="Interface\IPersonRepository.cs" />
     <Compile Include="Interface\IRepository.cs" />
+    <Compile Include="Migrations\201705191016347_InitialCreate.cs" />
+    <Compile Include="Migrations\201705191016347_InitialCreate.Designer.cs">
+      <DependentUpon>201705191016347_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705231803430_AddAgeFieldToPerson.cs" />
+    <Compile Include="Migrations\201705231803430_AddAgeFieldToPerson.Designer.cs">
+      <DependentUpon>201705231803430_AddAgeFieldToPerson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\PersonContext.cs" />
     <Compile Include="Model\PersonInitializeDb.cs" />
     <Compile Include="Model\PersonRepository.cs" />
@@ -69,6 +78,14 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201705191016347_InitialCreate.resx">
+      <DependentUpon>201705191016347_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705231803430_AddAgeFieldToPerson.resx">
+      <DependentUpon>201705231803430_AddAgeFieldToPerson.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -38,6 +38,8 @@ namespace DnnInterProj.EntityModel.Dtos
 
         public string Email { get; set; }
 
+        public string Age { get; set; }
+
         /// <summary>
         /// Picture Field of type array of binary. This an optional field
         /// </summary>

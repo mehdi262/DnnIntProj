@@ -15,11 +15,14 @@ namespace DnnInterProj.Biz
 
         public const int NotCreated_EmailFormatProblem = 401;
         public const int NotCreated_UsernameExist = 402;
+        public const int NotCreated_AgeNotValid = 403;
         public const int NotCreated_UnknownReason = 409;
 
         public const int NotUpdated_EmailDormatProblem = 411;
         public const int NotUpdated_UsernameExist = 412;
         public const int NotUpdated_IdNotExist = 413;
+        public const int NotUpdated_AgeNotValid = 413;
+
         public const int NotUpdated_UnknownReason = 419;
 
         public const int NotDeleted_IdNotExist = 421;

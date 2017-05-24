@@ -107,7 +107,7 @@ namespace DnnInterProj.DataAccess
         {
             try
             {
-                if (!ValidateEmail.IsValidEmail(person.Email))
+                if (!ValidateModel.IsValidEmail(person.Email))
                     return ReturnCodeReference.NotCreated_EmailFormatProblem;
 
                 if (CheckUserNameExistance(person.UserName))
@@ -207,7 +207,8 @@ namespace DnnInterProj.DataAccess
                     return ReturnCodeReference.NotUpdated_IdNotExist;
                 personInDb.Name = person.Name;
                 personInDb.LastName = person.LastName;
-                if (ValidateEmail.IsValidEmail(person.Email))
+                personInDb.Age = person.Age;
+                if (ValidateModel.IsValidEmail(person.Email))
                     personInDb.Email = person.Email;
                 personInDb.picture = person.picture;
 
