@@ -44,7 +44,8 @@ namespace DnnInterProj.EntityModel.Model
         [DataType(DataType.EmailAddress, ErrorMessage = "E-mail is not valid")]
         public string Email { get; set; }
 
-        [Display(Name="The Person Age")]
+        [Display(Name = "The Person Age")]
+        [Column(TypeName = "int")]
         public int Age { get; set; }
 
         /// <summary>

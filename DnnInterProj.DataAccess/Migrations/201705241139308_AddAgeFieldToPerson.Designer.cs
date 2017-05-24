@@ -13,7 +13,7 @@ namespace DnnInterProj.DataAccess.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201705231803430_AddAgeFieldToPerson"; }
+            get { return "201705241139308_AddAgeFieldToPerson"; }
         }
         
         string IMigrationMetadata.Source

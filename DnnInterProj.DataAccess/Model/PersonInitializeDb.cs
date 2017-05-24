@@ -34,6 +34,7 @@ namespace DnnInterProj.DataAccess
         {
 
             GetPersons().ForEach(p => context.Persons.Add(p));
+            context.SaveChanges();
         }
         /// <summary>
         /// The method generate ta consistant list of 4 sample persons

@@ -12,25 +12,18 @@ namespace DnnInterProj.DataAccess.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "DnnInterProj.DataAccess.PersonContext";
         }
 
         protected override void Seed(DnnInterProj.DataAccess.PersonContext context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
-          //  GetPersons().ForEach(p => context.Persons.Add(p));
-
+            List<Person> seedData = GetPersons();
+            foreach (var person in seedData)
+            {
+                if (context.Persons.SingleOrDefault(c => c.UserName == person.UserName) == null)
+                    context.Persons.AddOrUpdate(person);
+            }
+            
+            context.SaveChanges();
         }
         private static List<Person> GetPersons()
         {
@@ -85,5 +78,6 @@ namespace DnnInterProj.DataAccess.Migrations
 
             return persons;
         }
+
     }
 }

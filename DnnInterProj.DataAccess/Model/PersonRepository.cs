@@ -207,7 +207,8 @@ namespace DnnInterProj.DataAccess
                     return ReturnCodeReference.NotUpdated_IdNotExist;
                 personInDb.Name = person.Name;
                 personInDb.LastName = person.LastName;
-                personInDb.Age = person.Age;
+                if (!ValidateModel.IsAgeFormat(person.Age.ToString()))
+                    personInDb.Age = person.Age;
                 if (ValidateModel.IsValidEmail(person.Email))
                     personInDb.Email = person.Email;
                 personInDb.picture = person.picture;
