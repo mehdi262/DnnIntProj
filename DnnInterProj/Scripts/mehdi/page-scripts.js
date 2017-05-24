@@ -121,7 +121,6 @@ $(document).ready(function () {
     $("#users").on("click", ".js-delete",
         function () {
             var btn = $(this);
-            alert(btn.attr("data-person-id"));
             bootbox.confirm("Do you really want to permenantly delete this Person!?",
                 function (result) {
                     if (result) {
